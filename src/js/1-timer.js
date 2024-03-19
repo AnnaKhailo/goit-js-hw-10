@@ -48,7 +48,10 @@ startBtn.addEventListener("click", () => {
         timerMinutes.textContent = addLeadingZero(time.minutes);
         timerSeconds.textContent = addLeadingZero(time.seconds);
 
-        if(intervalTime < 1000) clearInterval(intervalId);
+        if(intervalTime < 1000) {
+            clearInterval(intervalId);
+            inputDate.disabled = false;
+        } 
     }, 1000);
 
     startBtn.disabled = true;
@@ -58,11 +61,7 @@ startBtn.addEventListener("click", () => {
 
 
 function addLeadingZero(value) {
-    if (value < 10) {
-        return value.toString().padStart(2, '0');
-    } else {
-        return value.toString();
-    }
+    return value.toString().padStart(2, '0');
 }
 
 function convertMs(ms) {
