@@ -21,14 +21,14 @@ function createPromise(event) {
     });
 
     promise
-    .then(() => {
+    .then((delay) => {
         iziToast.success({
             title: 'Success',
             message: `✅ Fulfilled promise in ${delay}ms`,
             position: 'topRight',
         });
     })
-    .catch(() => {
+    .catch((delay) => {
         iziToast.error({
             title: 'Error',
             message: `❌ Rejected promise in ${delay}ms`,
